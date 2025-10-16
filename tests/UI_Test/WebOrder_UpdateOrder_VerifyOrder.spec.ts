@@ -1,7 +1,7 @@
 //import { test, expect } from '@playwright/test';
 import { test, expect } from '@playwright/test';
 
-test('Create Order-Update Order- Verify Order @smoke', async ({ page }) => {
+test('Create Order-Update Order- Verify Order', async ({ page }) => {
   await page.goto('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx');
   //Browser.object.action
   await page.getByLabel('Username:').fill('Tester');
