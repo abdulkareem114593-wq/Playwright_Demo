@@ -12,9 +12,9 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  //testDir: './tests',
   //testDir: './tests/UI_Special_Control',
-  //testDir: '.tests/UI_Test',
+  testDir: './tests/UI_Test',
   /* Run tests in files in parallel */
   fullyParallel: true,
   workers:1,
@@ -47,11 +47,11 @@ export default defineConfig({
         ...devices['Desktop Chrome'],
         viewport:{width:1536,height:864},
         //colorScheme: 'dark',
-        launchOptions: {
-          slowMo: 1000,
-           //args:["--start-fullscreen"]
-           //args:["--start-maximized"]
-        }
+        // launchOptions: {
+        //   slowMo: 1000,
+        //    //args:["--start-fullscreen"]
+        //    //args:["--start-maximized"]
+        // }
       },
     },
 

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Create User in Orange HRM @smoke', async ({ page }) => {
+test('Create User in Orange HRM', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
   await page.getByPlaceholder('Username').fill('Admin');
@@ -40,13 +40,12 @@ test('Create User in Orange HRM @smoke', async ({ page }) => {
   await page.getByRole('textbox').nth(4).click();
   await page.getByRole('textbox').nth(4).fill('admin123');
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.waitForTimeout(5000)
-
- // await page.pause();
-
-  //await expect(page.getByText('Successfully Saved')).toBeVisible();
+  // Wait for success message after saving
+  await expect(page.getByText('Successfully Saved')).toBeVisible();
+  // Optionally, wait for navigation if the app redirects
+  // await page.waitForNavigation();
+  // Go to user list page after successful save
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers');
-  
   //Verify user is added
   //await expect(page.getByRole('table')).toContainText('UserName');
   await expect(page.locator("//div[text()='"+UserName+"']")).toHaveText(UserName);

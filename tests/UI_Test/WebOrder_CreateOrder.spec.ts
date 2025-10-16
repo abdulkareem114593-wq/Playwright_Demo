@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Create an Order', async ({ page }) => {
+test('Create an Order @smoke', async ({ page }) => {
   await page.goto('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx');
   await page.getByRole('textbox', { name: 'Username:' }).click();
   await page.getByRole('textbox', { name: 'Username:' }).fill('Tester');
@@ -28,16 +28,21 @@ test('Create an Order', async ({ page }) => {
   await page.getByRole('radio', { name: 'Visa' }).check();
   await page.getByRole('textbox', { name: 'Card Nr:*' }).click();
   await page.getByRole('textbox', { name: 'Card Nr:*' }).press('End');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowDown');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowUp');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('Home');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('PageUp');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowRight');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).press('PageDown');
-  await page.getByRole('textbox', { name: 'Card Nr:*' }).fill('12673498');
+  //await page.pause();
+
+ // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowDown');
+  // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowUp');
+  // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('Home');
+  // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('PageUp');
+  // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('ArrowRight');
+  // await page.getByRole('textbox', { name: 'Card Nr:*' }).press('PageDown');
+  await page.getByRole('textbox', { name: 'Card Nr:*' }).fill('126734981');
+  //await page.waitForTimeout(5000);
+  //await page.pause();
   await page.getByRole('textbox', { name: 'Expire date (mm/yy):*' }).click();
   await page.getByRole('textbox', { name: 'Expire date (mm/yy):*' }).fill('13/10');
   await page.getByRole('link', { name: 'Process' }).click();
+  await page.waitForTimeout(5000);
   await expect(page.getByRole('strong')).toHaveText('New order has been successfully added.');
   await page.getByRole('link', { name: 'View all orders' }).click()
   await expect(page.locator("//td[text()='Abdul']")).toHaveText('Abdul')
