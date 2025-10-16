@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Create User in Orange HRM', async ({ page }) => {
+test('Create User in Orange HRM @smoke', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
   await page.getByPlaceholder('Username').fill('Admin');
