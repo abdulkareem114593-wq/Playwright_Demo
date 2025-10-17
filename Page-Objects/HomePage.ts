@@ -1,6 +1,6 @@
-//http://zero.webappsecurity.com/index.html
+// http:zero.webappsecurity.com/index.html
 
-//import { Locator, Page } from '@playwright/test'
+//import { Locator, Page } from '@playwright/test';
 import { expect, Locator, Page } from '@playwright/test';
 export class HomePage {
    page: Page
