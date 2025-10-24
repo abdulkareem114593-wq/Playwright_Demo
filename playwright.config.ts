@@ -16,7 +16,8 @@ export default defineConfig({
   //testDir: './tests',
   //testDir: './tests/UI_Special_Control',
   //testDir: './tests/UI_Test',
-  testDir: './tests/ZeroBank_Test_PageObject',
+  // testDir: './tests/ZeroBank_Test_PageObject',
+  testDir: './tests/API_Test',
   /* Run tests in files in parallel */
   fullyParallel: true,
   workers:1,
